@@ -4,19 +4,34 @@ using UnityEngine;
 
 public class GameCamera : MonoBehaviour
 {
-    private static float border = 0;
-
-    public static float Border
+    private static float borderX = 0;
+    private static float borderY = 0;
+    public static float BorderX
     {
         get
         {
-            if(border == 0)
+            if(borderX == 0)
             {
                 var cam = Camera.main;
-                border = cam.aspect * cam.orthographicSize;
+                borderX = cam.aspect * cam.orthographicSize;
             }
-            return border;
+            return borderX;
         }
         private set { }
     }
+
+    public static float BorderY
+    {
+        get
+        {
+            if(borderY == 0)
+            {
+                var cam = Camera.main;
+                borderY = cam.orthographicSize;
+            }
+            return borderY;
+        }
+        private set { }
+    }
+
 }
